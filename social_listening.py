@@ -422,7 +422,6 @@ if df.empty:
 log.warning(f"Nothing to write to {tab_name!r} - DataFrame is empty.")
 return
 
-```
 ws = _get_or_create_worksheet(spreadsheet, tab_name)
 df = df.fillna("").astype(str)
 
@@ -436,7 +435,6 @@ else:
     # Append below existing content
     ws.append_rows(df.values.tolist(), value_input_option="USER_ENTERED")
     log.info(f"Appended {len(df)} rows to {tab_name!r}.")
-```
 
 # ══════════════════════════════════════════════════════════════════════════════
 
@@ -449,7 +447,6 @@ log.info("=" * 60)
 log.info(f"Social Listening Run - {RUN_DATE}")
 log.info("=" * 60)
 
-```
 # ── Validate secrets ───────────────────────────────────────────────────
 if not ANTHROPIC_API_KEY:
     raise EnvironmentError("ANTHROPIC_API_KEY is not set.")
@@ -502,7 +499,6 @@ except Exception as e:
 log.info("=" * 60)
 log.info(f"Run complete. {len(df)} mentions processed.")
 log.info("=" * 60)
-```
 
 if **name** == "**main**":
 main()
