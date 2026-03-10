@@ -407,7 +407,7 @@ spreadsheet: gspread.Spreadsheet,
 df: pd.DataFrame,
 tab_name: str,
 ) -> None:
-"""
+    
 Append a DataFrame to a Google Sheet tab.
 Writes headers if the sheet is empty; always appends rows below existing data.
 if df.empty:
