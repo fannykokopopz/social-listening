@@ -105,11 +105,11 @@ log.warning(f"SerpAPI error for {query!r}: {e}")
 return []
 
 def _search_via_duckduckgo(query: str, num_results: int) -> list[dict]:
-"""
-Free fallback: scrape DuckDuckGo HTML results.
-Note: DuckDuckGo may block aggressive scrapers; use SerpAPI in production.
-"""
-log.info(f"[DuckDuckGo] Searching: {query!r}")
+    """
+    Free fallback: scrape DuckDuckGo HTML results.
+    Note: DuckDuckGo may block aggressive scrapers; use SerpAPI in production.
+    """
+    log.info(f"[DuckDuckGo] Searching: {query!r}")
 headers = {
 "User-Agent": (
 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
