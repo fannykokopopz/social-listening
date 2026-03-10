@@ -1,11 +1,8 @@
-# """
-Weekly Social Listening Script
+# Weekly Social Listening Script
+# Runs every Monday to collect brand mentions, classify them with Claude,
+# and write results to Google Sheets.
 
-Runs every Monday to collect brand mentions, classify them with Claude,
-and write results to Google Sheets.
-
-Tracks: Sonos | Marshall | Bowers & Wilkins | Category trends
-"""
+# Tracks: Sonos | Marshall | Bowers & Wilkins | Category trends
 
 import os
 import json
