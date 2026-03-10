@@ -90,20 +90,17 @@ params = {
 "gl": "sg",
 }
 try:
-resp = requests.get("https://serpapi.com/search", params=params, timeout=15)
-resp.raise_for_status()
-data = resp.json()
-results = []
-for item in data.get("organic_results", []):
-results.append({
-"title": item.get("title", ""),
-"url": item.get("link", ""),
-"snippet": item.get("snippet", ""),
-"published_date": item.get("date", ""),
-"query": query,
-})
-return results
+    resp = requests.get(
+        "https://serpapi.com/search",
+        params=params,
+        timeout=15
+    )
+    resp.raise_for_status()
+    data = resp.json()
+
 except Exception as e:
+    log.error(f"SerpAPI request failed: {e}")
+    return []
 log.warning(f"SerpAPI error for {query!r}: {e}")
 return []
 
@@ -122,11 +119,11 @@ headers = {
 }
 params = {"q": query, "df": "w"}   # df=w → last week
 try:
-resp = requests.get(
-"https://html.duckduckgo.com/html/",
-params=params,
-headers=headers,
-timeout=15,
+    resp = requests.get(
+    "https://html.duckduckgo.com/html/",
+    params=params,
+    headers=headers,
+    timeout=15,
 )
 resp.raise_for_status()
 soup = BeautifulSoup(resp.text, "html.parser")
