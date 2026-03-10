@@ -413,7 +413,6 @@ tab_name: str,
 """
 Append a DataFrame to a Google Sheet tab.
 Writes headers if the sheet is empty; always appends rows below existing data.
-"""
 if df.empty:
 log.warning(f"Nothing to write to {tab_name!r} - DataFrame is empty.")
 return
