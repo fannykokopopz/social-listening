@@ -81,7 +81,7 @@ else:
 ```
 
 def _search_via_serpapi(query: str, num_results: int) -> list[dict]:
-"""Paid search via SerpAPI — most reliable, respects date filters."""
+"""Paid search via SerpAPI - most reliable, respects date filters."""
 log.info(f"[SerpAPI] Searching: {query!r}")
 params = {
 "q": query,
@@ -419,7 +419,7 @@ Append a DataFrame to a Google Sheet tab.
 Writes headers if the sheet is empty; always appends rows below existing data.
 """
 if df.empty:
-log.warning(f"Nothing to write to {tab_name!r} — DataFrame is empty.")
+log.warning(f"Nothing to write to {tab_name!r} - DataFrame is empty.")
 return
 
 ```
@@ -428,7 +428,7 @@ df = df.fillna("").astype(str)
 
 existing = ws.get_all_values()
 if not existing:
-    # Sheet is empty — write headers + data
+    # Sheet is empty - write headers + data
     data = [df.columns.tolist()] + df.values.tolist()
     ws.update(range_name="A1", values=data)
     log.info(f"Wrote {len(df)} rows (+headers) to {tab_name!r}.")
@@ -446,7 +446,7 @@ else:
 
 def main():
 log.info("=" * 60)
-log.info(f"Social Listening Run — {RUN_DATE}")
+log.info(f"Social Listening Run - {RUN_DATE}")
 log.info("=" * 60)
 
 ```
@@ -459,7 +459,7 @@ if not GOOGLE_SHEET_NAME:
     raise EnvironmentError("GOOGLE_SHEET_NAME is not set.")
 
 # ── Step 1: Search ─────────────────────────────────────────────────────
-log.info("Step 1/5 — Searching the web...")
+log.info("Step 1/5 - Searching the web...")
 all_raw = []
 for query in SEARCH_QUERIES:
     try:
@@ -470,22 +470,22 @@ for query in SEARCH_QUERIES:
         log.warning(f"  ✗ Search failed for {query!r}: {e}")
 
 # ── Step 2: Normalise ──────────────────────────────────────────────────
-log.info("Step 2/5 — Normalising results...")
+log.info("Step 2/5 - Normalising results...")
 df = normalize_results(all_raw)
 if df.empty:
     log.error("No results after normalisation. Exiting.")
     return
 
 # ── Step 3: Classify ───────────────────────────────────────────────────
-log.info(f"Step 3/5 — Classifying {len(df)} mentions with Claude...")
+log.info(f"Step 3/5 - Classifying {len(df)} mentions with Claude...")
 df = classify_mentions_with_claude(df)
 
 # ── Step 4: Weekly Summary ─────────────────────────────────────────────
-log.info("Step 4/5 — Generating weekly summary...")
+log.info("Step 4/5 - Generating weekly summary...")
 summary_df = generate_weekly_summary(df)
 
 # ── Step 5: Write to Google Sheets ────────────────────────────────────
-log.info("Step 5/5 — Writing to Google Sheets...")
+log.info("Step 5/5 - Writing to Google Sheets...")
 try:
     spreadsheet = connect_google_sheets()
 
