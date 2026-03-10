@@ -305,7 +305,6 @@ if df.empty:
 log.warning("No data to summarise.")
 return pd.DataFrame()
 
-```
 client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
 # Build a compact data snapshot for the prompt
@@ -318,7 +317,6 @@ for _, row in df.iterrows():
 snapshot = "\n".join(snapshot_rows[:80])   # cap at 80 rows to stay within tokens
 
 prompt = f"""You are a senior marketing analyst at a premium audio brand distributor in Singapore.
-```
 
 You cover: Sonos, Marshall, Bowers & Wilkins.
 
@@ -337,7 +335,6 @@ Write a concise weekly summary for the marketing lead. Respond ONLY with a valid
 "marketer_watchouts": "<2–3 bullet points as a single string, separated by | >"
 }}"""
 
-```
 try:
     message = client.messages.create(
         model="claude-sonnet-4-20250514",
@@ -375,7 +372,6 @@ try:
 except Exception as e:
     log.error(f"Summary generation failed: {e}")
     return pd.DataFrame()
-```
 
 # ══════════════════════════════════════════════════════════════════════════════
 
