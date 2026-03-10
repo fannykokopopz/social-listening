@@ -322,7 +322,7 @@ prompt = f"""You are a senior marketing analyst at a premium audio brand distrib
 
 You cover: Sonos, Marshall, Bowers & Wilkins.
 
-Below is this week's social listening data ({RUN_DATE}):
+"Below is this week's social listening data (***RUN_DATE***):"
 
 {snapshot}
 
