@@ -401,7 +401,7 @@ log.error(f"Google Sheets connection failed: {e}")
 raise
 
 def _get_or_create_worksheet(spreadsheet: gspread.Spreadsheet, tab_name: str) -> gspread.Worksheet:
-"""Return worksheet by name, creating it if it doesn't exist."""
+# Return worksheet by name, creating it if it doesn't exist.
 try:
 return spreadsheet.worksheet(tab_name)
 except gspread.WorksheetNotFound:
