@@ -79,8 +79,8 @@ def search_web(query: str, num_results: int = 10) -> list[dict]:
         return _search_via_duckduckgo(query, num_results)
         
 def _search_via_serpapi(query: str, num_results: int) -> list[dict]:
-"""Paid search via SerpAPI - most reliable, respects date filters."""
-log.info(f"[SerpAPI] Searching: {query!r}")
+    """Paid search via SerpAPI – most reliable, respects date filters."""
+    log.info(f"[SerpAPI] Searching: {query!r}")
 params = {
 "q": query,
 "api_key": SERP_API_KEY,
