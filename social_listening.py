@@ -63,20 +63,21 @@ WEEK_AGO = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d")
 # ══════════════════════════════════════════════════════════════════════════════
 
 def search_web(query: str, num_results: int = 10) -> list[dict]:
-"""
-Search the web for a query and return raw results.
+    """
+    Search the web for a query and return raw results.
 
-```
-Uses SerpAPI if SERP_API_KEY is set (recommended for production).
-Falls back to a DuckDuckGo HTML scrape for zero-cost usage.
-Each result dict: {title, url, snippet, published_date, query}
-"""
-if SERP_API_KEY:
-    return _search_via_serpapi(query, num_results)
-else:
-    return _search_via_duckduckgo(query, num_results)
-```
+    Uses SerpAPI if SERP_API_KEY is set (recommended for production).
+    Falls back to a DuckDuckGo HTML scrape for zero-cost usage.
 
+    Each result dict:
+    {title, url, snippet, published_date, query}
+    """
+
+    if SERP_API_KEY:
+        return _search_via_serpapi(query, num_results)
+    else:
+        return _search_via_duckduckgo(query, num_results)
+        
 def _search_via_serpapi(query: str, num_results: int) -> list[dict]:
 """Paid search via SerpAPI - most reliable, respects date filters."""
 log.info(f"[SerpAPI] Searching: {query!r}")
