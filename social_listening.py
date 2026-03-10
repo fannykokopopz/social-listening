@@ -147,7 +147,7 @@ results.append({
 "title": title,
 "url": url,
 "snippet": snippet,
-"published_date": "",   # DDG HTML doesn’t expose dates
+"published_date": "",   # DDG HTML doesn't expose dates
 "query": query,
 })
 time.sleep(2)   # be polite to DDG
@@ -322,7 +322,7 @@ prompt = f"""You are a senior marketing analyst at a premium audio brand distrib
 
 You cover: Sonos, Marshall, Bowers & Wilkins.
 
-Below is this week’s social listening data ({RUN_DATE}):
+Below is this week's social listening data ({RUN_DATE}):
 
 {snapshot}
 
@@ -401,7 +401,7 @@ log.error(f"Google Sheets connection failed: {e}")
 raise
 
 def _get_or_create_worksheet(spreadsheet: gspread.Spreadsheet, tab_name: str) -> gspread.Worksheet:
-"""Return worksheet by name, creating it if it doesn’t exist."""
+"""Return worksheet by name, creating it if it doesn't exist."""
 try:
 return spreadsheet.worksheet(tab_name)
 except gspread.WorksheetNotFound:
