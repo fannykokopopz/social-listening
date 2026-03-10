@@ -249,10 +249,10 @@ empty = {
 try:
 prompt = f"""You are a marketing analyst classifying a social listening mention for a premium audio brand distributor.
 
-Title: {row.get(‘title’, ‘’)}
-Source: {row.get(‘domain’, ‘’)}
-Snippet: {row.get(‘snippet’, ‘’)}
-Search Query Used: {row.get(‘query’, ‘’)}
+Title: {row.get('title', '')}
+Source: {row.get('domain', '')}
+Snippet: {row.get('snippet', '')}
+Search Query Used: {row.get('query', '')}
 
 Classify this mention and respond ONLY with a valid JSON object (no markdown, no commentary):
 
